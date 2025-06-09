@@ -62,7 +62,7 @@ interface Value {
 function Values() {
   const values: Value[] = [
     {
-      title: "Teste",
+      title: "Passion for Continuous Learning",
       description:
         "I actively seek out new technologies and stay up-to-date with industry trends.",
       image: "/img/pexels-pixabay-159711.webp",
