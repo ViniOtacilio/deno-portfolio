@@ -9,11 +9,11 @@ function MetaTags(
     <>
       {/* Primary Meta Tags */}
       <title>
-        ${credentials.name} - Experienced Web Developer | Full Portfolio
+        ${credentials.name} - Software Developer | Portfolio
       </title>
       <meta
         name="title"
-        content={`${credentials.name} - Experienced Web Developer | Full Portfolio`}
+        content={`${credentials.name} - Software Developer | Portfolio`}
       />
       <meta
         name="description"
@@ -25,7 +25,7 @@ function MetaTags(
       <meta property="og:url" content={`${url}`} />
       <meta
         property="og:title"
-        content={`${credentials.name} - Experienced Web Developer | Full Portfolio`}
+        content={`${credentials.name} - Software Developer | Portfolio`}
       />
       <meta
         property="og:description"
@@ -41,7 +41,7 @@ function MetaTags(
       <meta property="twitter:url" content={`${url}`} />
       <meta
         property="twitter:title"
-        content={`${credentials.name} - Experienced Web Developer | Full Portfolio`}
+        content={`${credentials.name} - Software Developer | Portfolio`}
       />
       <meta
         property="twitter:description"
@@ -72,10 +72,10 @@ export default function App({ Component }: PageProps) {
   ];
 
   const credentials = {
-    name: "John Doe",
+    name: "Vinicius Otacilio",
   };
 
-  const url = "https://opensource-portfolio.deno.dev/";
+  const url = "https://viniotacilio.deno.dev/";
 
   return (
     <html lang="en">
@@ -83,7 +83,7 @@ export default function App({ Component }: PageProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <MetaTags credentials={credentials} url={url} />
-        <title>Developer Portfolio | {credentials.name}</title>
+        <title>Software Developer Portfolio | {credentials.name}</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body class="min-h-screen flex flex-col max-w-screen-xl mx-auto">
@@ -94,7 +94,7 @@ export default function App({ Component }: PageProps) {
           <Component />
         </main>
         <footer class="mt-auto footer w-auto m-2 p-4 bg-neutral text-neutral-content rounded-lg">
-          <aside>
+          {/* <aside>
             <span>MIT licensed with ❤️ by Michael</span>
             <span>
               3D Art by{" "}
@@ -106,7 +106,7 @@ export default function App({ Component }: PageProps) {
                 Valery Kharitonov
               </a>
             </span>
-          </aside>
+          </aside> */}
           <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             {socials.map((social) => (
               <a

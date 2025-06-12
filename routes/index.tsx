@@ -119,16 +119,22 @@ interface Experience {
 function Experience() {
   const experiences: Experience[] = [
     {
-      title: "Full Stack Web Developer",
-      company: "AST Advanced Sales Technologies GmbH",
-      timePeriod: "Sep 2023 - Apr 2024",
-      location: "Vienna, Austria",
+      title: "Mid-Level Software Developer",
+      company: "Exato Digital",
+      timePeriod: "Aug 2023 - Current",
+      location: "São Paulo, Brazil",
     },
     {
-      title: "Junior Web Developer",
-      company: "AST Advanced Sales Technologies GmbH",
-      timePeriod: "Feb 2023 - Sep 2023",
-      location: "Vienna, Austria",
+      title: "Junior Software Developer",
+      company: "Exato Digital",
+      timePeriod: "Oct 2020 - Aug 2023",
+      location: "São Paulo, Brazil",
+    },
+    {
+      title: "Development Intern",
+      company: "Exato Digital",
+      timePeriod: "Feb 2020 - Oct 2020",
+      location: "São Paulo, Brazil",
     },
   ];
 
@@ -248,26 +254,22 @@ function Projects() {
 
 function Technologies() {
   const technologies = [
+    "devicon:dotnetcore",
+    "devicon:csharp",
+    "logos:vue",
+    "logos:postgresql",
     "vscode-icons:file-type-js-official",
-    "logos:html-5",
-    "logos:css-3",
-    "logos:php",
     "logos:typescript-icon",
     "skill-icons:react-dark",
-    "logos:vue",
-    "devicon:nextjs",
-    "skill-icons:nuxtjs-dark",
-    "logos:nestjs",
-    "logos:fresh",
-    "skill-icons:laravel-dark",
     "skill-icons:tailwindcss-dark",
     "logos:deno",
     "devicon:nodejs",
-    "vscode-icons:file-type-mongo",
-    "logos:postgresql",
-    "logos:mariadb-icon",
-    "skill-icons:cassandra-light",
     "skill-icons:docker",
+    "logos:html-5",
+    "logos:css-3",
+    "logos:aws",
+    "logos:ruby",
+    "logos:angular-icon"
   ];
 
   return (
@@ -294,7 +296,7 @@ export default function Home() {
     <>
       <Hero />
       <Values />
-      <Projects />
+      {/* <Projects /> */}
       <Experience />
       <Technologies />
     </>
