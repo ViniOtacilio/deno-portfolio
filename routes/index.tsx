@@ -1,7 +1,5 @@
 import SpinningModel from "../islands/SpinningModel.tsx";
-import TypingAnimation from "../islands/TypingAnimation.tsx";
 import { Icon, loadIcons } from "@iconify-icon/react";
-import Wave from "../components/Wave.tsx";
 
 // preload icons
 loadIcons([
@@ -24,84 +22,96 @@ loadIcons([
   "logos:aws",
   "logos:ruby",
   "logos:angular-icon",
+  "carbon:cloud-service-management",
+  "carbon:network-4",
+  "carbon:meter",
+  "carbon:api-1",
+  "carbon:ibm-cloud",
 ]);
 
 function Hero() {
   return (
-    <section class="p-4 flex justify-evenly items-center flex-wrap">
-      <div class="max-w-sm mt-8">
-        <h1 class="text-4xl font-bold text-primary">
-          <TypingAnimation
-            strings={[
-              '"Hello, World!"',
-              "I'm a developer.",
-            ]}
-            autoStart
-          />
-        </h1>
-        <p class="text-xl mt-4">
-          I build web applications and websites using modern technologies.
+    <section class="p-4 py-12 flex justify-between items-center gap-10 flex-wrap">
+      <div class="max-w-2xl">
+        <p class="uppercase tracking-widest text-sm font-bold text-primary mb-4">
+          Backend engineer · distributed systems · cloud architecture
         </p>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+          I build reliable systems for real-world communication.
+        </h1>
+        <p class="text-xl mt-6 max-w-xl">
+          Software Engineer with 7+ years of experience building scalable web
+          platforms, cloud-native applications, and real-time communication
+          systems with C# and .NET.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a class="btn btn-primary text-base-100" href="#experience">
+            Explore my experience
+          </a>
+          <a class="btn btn-outline" href="#technologies">
+            View my toolkit
+          </a>
+        </div>
       </div>
       <SpinningModel />
     </section>
   );
 }
 
-interface Value {
+interface Focus {
   title: string;
   description: string;
-  image: string;
+  icon: string;
 }
 
-function Values() {
-  const values: Value[] = [
+function EngineeringFocus() {
+  const focusAreas: Focus[] = [
     {
-      title: "Passion for Continuous Learning",
+      title: "Distributed systems",
       description:
-        "I actively seek out new technologies and stay up-to-date with industry trends.",
-      image: "/img/pexels-pixabay-159711.webp",
+        "Asynchronous workflows, messaging, and service boundaries designed for resilience and scale.",
+      icon: "carbon:network-4",
     },
     {
-      title: "User-Centric Approach",
+      title: "Cloud-native delivery",
       description:
-        "My goal is to create user-friendly applications that solve real-world problems.",
-      image: "/img/pexels-picjumbo-com-55570-196644.webp",
+        "Production-minded solutions across Azure and AWS, from architecture through deployment and support.",
+      icon: "carbon:cloud-service-management",
     },
     {
-      title: "Collaboration and Communication",
+      title: "Real-time communication",
       description:
-        "I excel in team environments and communicate effectively with stakeholders.",
-      image: "/img/pexels-fauxels-3184418.webp",
+        "Call workflows, authentication, authorization, and SignalR features where reliability matters.",
+      icon: "carbon:api-1",
     },
   ];
 
   return (
-    <>
-      <Wave flip={false} />
-      <section class="p-4 flex justify-center items-center gap-4 flex-wrap bg-primary">
-        {values.map((value, i) => (
-          <div
-            key={value.title}
-            class={"card md:h-auto md:max-w-64 bg-base-100 flex-row md:flex-col shadow-lg" +
-              (i % 2 ? " md:-translate-y-8" : "")}
-          >
-            <figure class="w-1/3 md:h-48 md:w-auto rounded-none rounded-l-box md:rounded-none md:rounded-t-box">
-              <img
-                class="w-full h-full object-cover"
-                src={value.image}
-                alt={value.title}
-              />
-            </figure>
-            <div class="card-body w-2/3 md:w-auto">
-              <h2 class="card-title">{value.title}</h2>
-              <p>{value.description}</p>
-            </div>
+    <section class="p-4 py-10 bg-primary text-primary-content">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex flex-wrap justify-between items-end gap-4 mb-6">
+          <div>
+            <p class="uppercase tracking-widest text-sm font-bold opacity-80">
+              What I care about
+            </p>
+            <h2 class="text-3xl font-bold mt-2">Engineering with a long view.</h2>
           </div>
-        ))}
+          <p class="max-w-md opacity-90">
+            I enjoy the hard parts: clear boundaries, observable systems, and
+            software that stays dependable as its workload grows.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          {focusAreas.map((focus) => (
+            <article key={focus.title} class="p-5 bg-base-100 text-base-content rounded-box">
+              <Icon class="w-8 h-8 text-primary mb-5" icon={focus.icon} width="none" height="none" />
+              <h3 class="text-xl font-bold">{focus.title}</h3>
+              <p class="mt-2">{focus.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
       </section>
-      <Wave flip />
-    </>
   );
 }
 
@@ -110,6 +120,7 @@ interface Experience {
   company: string;
   timePeriod: string;
   location: string;
+  description: string;
 }
 
 function Experience() {
@@ -119,29 +130,37 @@ function Experience() {
       company: "Language Services Associates",
       timePeriod: "Jul 2025 - Present",
       location: "Horsham, Pennsylvania, United States",
+      description:
+        "Building real-time communication and call workflows, asynchronous messaging, and performance-focused platform features.",
     },
     {
       title: "Mid-Level Software Developer",
       company: "Exato Digital",
       timePeriod: "Aug 2023 - July 2025",
       location: "São Paulo, Brazil",
+      description:
+        "Designed and delivered APIs, integrations, and cloud-based services across the full software development lifecycle.",
     },
     {
       title: "Junior Software Developer",
       company: "Exato Digital",
       timePeriod: "Oct 2020 - Aug 2023",
       location: "São Paulo, Brazil",
+      description:
+        "Developed scalable backend services with .NET, Entity Framework, PostgreSQL, SQL Server, and third-party integrations.",
     },
     {
       title: "Development Intern",
       company: "Exato Digital",
       timePeriod: "Feb 2020 - Oct 2020",
       location: "São Paulo, Brazil",
+      description:
+        "Built a foundation across backend development, frontend integration, deployment, and production support.",
     },
   ];
 
   return (
-    <section class="p-4 flex flex-wrap-reverse justify-evenly items-center gap-4">
+    <section id="experience" class="p-4 py-12 flex flex-wrap-reverse justify-evenly items-center gap-8">
       <div class="flex flex-col">
         {experiences.map((experience, i) => (
           <div
@@ -187,12 +206,20 @@ function Experience() {
                   />
                   {experience.location}
                 </span>
+                <p class="mt-3 max-w-lg">{experience.description}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <h1 class="text-3xl font-bold text-primary">Work Experience</h1>
+      <div class="max-w-xs">
+        <p class="uppercase tracking-widest text-sm font-bold text-primary">The path so far</p>
+        <h2 class="text-3xl font-bold text-primary mt-2">Work Experience</h2>
+        <p class="mt-4">
+          From internship to owning production systems, each role has added a
+          deeper layer of engineering responsibility.
+        </p>
+      </div>
     </section>
   );
 }
@@ -282,7 +309,7 @@ function Technologies() {
   ];
 
   return (
-    <section class="my-16">
+    <section id="technologies" class="my-16">
       <h1 class="text-3xl font-bold text-primary text-center mb-4">
         Technologies
       </h1>
@@ -305,7 +332,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Values />
+      <EngineeringFocus />
       {/* <Projects /> */}
       <Experience />
       <Technologies />
