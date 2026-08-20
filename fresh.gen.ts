@@ -10,7 +10,7 @@ import * as $index from "./routes/index.tsx";
 import * as $AppBar from "./islands/AppBar.tsx";
 import * as $SpinningModel from "./islands/SpinningModel.tsx";
 import * as $TypingAnimation from "./islands/TypingAnimation.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {

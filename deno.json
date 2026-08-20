@@ -22,24 +22,24 @@
     "**/node_modules/*"
   ],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.6.8/",
-    "$std/": "https://deno.land/std@0.216.0/",
-    "@iconify-icon/react": "https://esm.sh/@iconify-icon/react@2.1.0?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat&external=preact",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
-    "@types/three": "npm:@types/three@^0.163.0",
-    "axios": "npm:axios@^1.6.8",
-    "daisyui": "npm:daisyui@^4.10.2",
-    "preact": "https://esm.sh/preact@10.19.6",
-    "preact/": "https://esm.sh/preact@10.19.6/",
-    "tailwindcss": "npm:tailwindcss@3.4.1",
-    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "three": "npm:three@^0.163.0"
+    "$fresh/": "https://deno.land/x/fresh@1.7.0/",
+    "$std/": "https://deno.land/std@0.216.1/",
+    "@iconify-icon/react": "https://esm.sh/@iconify-icon/react@3.0.3?alias=react:preact/compat,react-dom:preact/compat,@types/react:preact/compat&external=preact",
+    "@preact/signals": "https://esm.sh/@preact/signals@2.9.2?target=es2022",
+    "@preact/signals-core": "https://esm.sh/@preact/signals-core@1.14.3?target=es2022",
+    "axios": "npm:axios@^1.6.9",
+    "daisyui": "npm:daisyui@^4.10.3",
+    "preact": "https://esm.sh/preact@10.25.0",
+    "preact/": "https://esm.sh/preact@10.25.0/",
+    "tailwindcss": "npm:tailwindcss@3.4.3",
+    "tailwindcss/": "npm:/tailwindcss@3.4.3/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.3/plugin.js",
+    "three": "https://esm.sh/three@0.165.0",
+    "three/": "https://esm.sh/three@0.165.0/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "nodeModulesDir": true
+  "nodeModulesDir": "auto"
 }

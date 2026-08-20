@@ -8,9 +8,7 @@ function MetaTags(
   return (
     <>
       {/* Primary Meta Tags */}
-      <title>
-        ${credentials.name} - Software Developer | Portfolio
-      </title>
+      <title>{credentials.name} - Software Developer | Portfolio</title>
       <meta
         name="title"
         content={`${credentials.name} - Software Developer | Portfolio`}
@@ -80,10 +78,9 @@ export default function App({ Component }: PageProps) {
   return (
     <html lang="en">
       <head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <MetaTags credentials={credentials} url={url} />
-        <title>Software Developer Portfolio | {credentials.name}</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body class="min-h-screen flex flex-col max-w-screen-xl mx-auto">
@@ -94,7 +91,8 @@ export default function App({ Component }: PageProps) {
           <Component />
         </main>
         <footer class="mt-auto footer w-auto m-2 p-4 bg-neutral text-neutral-content rounded-lg">
-          {/* <aside>
+          {
+            /* <aside>
             <span>MIT licensed with ❤️ by Michael</span>
             <span>
               3D Art by{" "}
@@ -106,12 +104,15 @@ export default function App({ Component }: PageProps) {
                 Valery Kharitonov
               </a>
             </span>
-          </aside> */}
+          </aside> */
+          }
           <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             {socials.map((social) => (
               <a
+                key={social.name}
                 href={social.url}
                 target="_blank"
+                rel="noreferrer noopener"
                 aria-label={social.name}
               >
                 <Icon icon={social.icon} width="24" height="24" />

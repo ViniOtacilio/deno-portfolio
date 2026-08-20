@@ -23,7 +23,7 @@ loadIcons([
   "logos:css-3",
   "logos:aws",
   "logos:ruby",
-  "logos:angular-icon"
+  "logos:angular-icon",
 ]);
 
 function Hero() {
@@ -36,7 +36,7 @@ function Hero() {
               '"Hello, World!"',
               "I'm a developer.",
             ]}
-            autoStart={true}
+            autoStart
           />
         </h1>
         <p class="text-xl mt-4">
@@ -82,6 +82,7 @@ function Values() {
       <section class="p-4 flex justify-center items-center gap-4 flex-wrap bg-primary">
         {values.map((value, i) => (
           <div
+            key={value.title}
             class={"card md:h-auto md:max-w-64 bg-base-100 flex-row md:flex-col shadow-lg" +
               (i % 2 ? " md:-translate-y-8" : "")}
           >
@@ -99,7 +100,7 @@ function Values() {
           </div>
         ))}
       </section>
-      <Wave flip={true} />
+      <Wave flip />
     </>
   );
 }
@@ -114,9 +115,15 @@ interface Experience {
 function Experience() {
   const experiences: Experience[] = [
     {
+      title: "Software Developer",
+      company: "Language Services Associates",
+      timePeriod: "Jul 2025 - Present",
+      location: "Horsham, Pennsylvania, United States",
+    },
+    {
       title: "Mid-Level Software Developer",
       company: "Exato Digital",
-      timePeriod: "Aug 2023 - Current",
+      timePeriod: "Aug 2023 - July 2025",
       location: "São Paulo, Brazil",
     },
     {
@@ -137,12 +144,18 @@ function Experience() {
     <section class="p-4 flex flex-wrap-reverse justify-evenly items-center gap-4">
       <div class="flex flex-col">
         {experiences.map((experience, i) => (
-          <>
+          <div
+            key={`${experience.company}-${experience.timePeriod}`}
+            class="flex flex-col"
+          >
             {i > 0 &&
               (
                 <div class="flex flex-col gap-2 ml-8 my-2">
-                  {[...Array(3)].map(() => (
-                    <span className="w-1 aspect-square bg-gray-500 rounded-full" />
+                  {[...Array(3)].map((_, dotIndex) => (
+                    <span
+                      key={dotIndex}
+                      class="w-1 aspect-square bg-gray-500 rounded-full"
+                    />
                   ))}
                 </div>
               )}
@@ -176,7 +189,7 @@ function Experience() {
                 </span>
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
       <h1 class="text-3xl font-bold text-primary">Work Experience</h1>
@@ -219,7 +232,7 @@ function Projects() {
       </h1>
       <div class="flex flex-wrap justify-center items-center gap-2">
         {projects.map((project) => (
-          <div class="card max-w-96">
+          <div key={project.title} class="card max-w-96">
             <div class="card-body p-4">
               <h2 class="card-title">
                 <Icon
@@ -235,6 +248,7 @@ function Projects() {
               <a
                 href={project.link}
                 target="_blank"
+                rel="noreferrer noopener"
                 class="btn btn-primary text-base-100"
               >
                 View Project
@@ -264,7 +278,7 @@ function Technologies() {
     "logos:css-3",
     "logos:aws",
     "logos:ruby",
-    "logos:angular-icon"
+    "logos:angular-icon",
   ];
 
   return (
@@ -275,6 +289,7 @@ function Technologies() {
       <div class="p-4 flex justify-center items-center flex-wrap gap-4">
         {technologies.map((technology) => (
           <Icon
+            key={technology}
             class="w-8 h-8"
             icon={technology}
             width="none"

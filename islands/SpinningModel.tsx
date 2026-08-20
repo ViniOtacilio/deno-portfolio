@@ -1,10 +1,10 @@
 import { Component } from "preact";
 import * as THREE from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 class SpinningModel extends Component {
-  componentDidMount() {
+  override componentDidMount() {
     const loadingManager = new THREE.LoadingManager();
     loadingManager.onLoad = () => {
       document.getElementById("loading-overlay")?.remove();
@@ -23,7 +23,10 @@ class SpinningModel extends Component {
       1000,
     );
     const renderer = new THREE.WebGLRenderer({ alpha: true });
-    const controls = new OrbitControls(camera, renderer.domElement);
+    const controls = new OrbitControls(
+      camera as THREE.Camera,
+      renderer.domElement,
+    );
     controls.enableDamping = true;
     controls.autoRotate = true;
 
@@ -33,12 +36,10 @@ class SpinningModel extends Component {
     );
 
     const loader = new GLTFLoader(loadingManager);
-    let model: THREE.Object3D | undefined;
 
     loader.load(
-      "../scene.gltf", // replace with the path to your model
-      function (gltf: THREE.GLTF & { scene: THREE.Scene }) {
-        model = gltf.scene;
+      "/scene.gltf",
+      function (gltf: { scene: THREE.Group }) {
         scene.add(gltf.scene);
 
         // rotate to align the model
@@ -65,7 +66,7 @@ class SpinningModel extends Component {
         animate();
       },
       undefined,
-      function (error: Error) {
+      function (error: unknown) {
         console.error(error);
       },
     );

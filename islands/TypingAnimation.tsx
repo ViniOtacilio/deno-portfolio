@@ -1,5 +1,5 @@
 import { Component } from "preact";
-import Typewriter from "npm:typewriter-effect/dist/core.js";
+import Typewriter from "npm:typewriter-effect@2.22.0/dist/core.js";
 
 interface TypingAnimationProps {
   strings: string[];
@@ -11,7 +11,7 @@ export default class TypingAnimation extends Component<TypingAnimationProps> {
     super(props);
   }
 
-  componentDidMount() {
+  override componentDidMount() {
     new Typewriter("#typewriter", {
       strings: this.props.strings,
       autoStart: this.props.autoStart,
